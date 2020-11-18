@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Fields Galore" max_length="40" name="x_58872_needit_fields_galore" type="collection">
+        <element label="Additional Remarks" max_length="400" name="u_additional_remarks" type="string"/>
+        <element choice="1" dependent="u_product_category" dependent_on_field="u_product_category" label="Product" mandatory="true" max_length="40" name="u_product" type="choice" use_dependent_field="true">
+            <choice>
+                <element dependent_value="books" inactive_on_update="false" label="Atlas Obscura" sequence="100" value="atlas_obscura"/>
+                <element dependent_value="headphones" inactive_on_update="false" label="Headphones 1" sequence="100" value="headphones_1"/>
+                <element dependent_value="keyboards" inactive_on_update="false" label="Keyboard 1" sequence="100" value="keyboard_1"/>
+                <element dependent_value="headphones" inactive_on_update="false" label="Headphones 2" sequence="200" value="headphones_2"/>
+                <element dependent_value="books" inactive_on_update="false" label="Inferno" sequence="200" value="inferno"/>
+                <element dependent_value="keyboards" inactive_on_update="false" label="Keyboard 2" sequence="200" value="keyboard_2"/>
+            </choice>
+        </element>
+        <element choice="1" label="Product Category" mandatory="true" max_length="40" name="u_product_category" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Books" sequence="100" value="books"/>
+                <element inactive_on_update="false" label="Keyboards" sequence="200" value="keyboards"/>
+                <element inactive_on_update="false" label="Headphones" sequence="300" value="headphones"/>
+            </choice>
+        </element>
+        <element label="Requester" mandatory="true" max_length="32" name="u_requester" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element display="true" label="Unknown Field" max_length="4000" name="u_unknown_field" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="glide_list"/>
+        <index name="index">
+            <element name="u_requester"/>
+        </index>
+    </element>
+</database>
